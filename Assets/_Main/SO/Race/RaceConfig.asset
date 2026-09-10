@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e9f4dcd736848ca9fd59c26805385a, type: 3}
+  m_Name: RaceConfig
+  m_EditorClassIdentifier: 
+  m_BaseSpeed: 12
+  m_RaceLengthMeters: 1000
+  m_CountdownSeconds: 3
+  m_LaneWidthMeters: 2.4
+  m_RunoutMeters: 60
+  m_RoadShoulderMeters: 3
+  m_Waypoints: []
+  m_CarsMoveLeftToRight: 1
+  m_CameraSideDistance: 22
+  m_CameraHeight: 11
+  m_CameraLookAhead: 2
+  m_CameraFollowSmoothing: 10
+  m_CameraFieldOfView: 50
+  m_CameraBuffFovGain: 1
+  m_CameraPackBias: 0
+  m_LaneChangeSmoothing: 6
+  m_BankPerBuffLevel: 1.8
+  m_WheelRadiusMeters: 0.34
+  m_BuffTrailSeconds: 0.35
+  m_PlayerMarkerHeight: 2.6
+  m_FixedStepHz: 120
+  m_TargetSeparationMeters: 12
+  m_TargetMarginStartMeters: 6
+  m_TargetMarginAheadEndMeters: 48
+  m_TargetMarginBehindEndMeters: 16
+  m_TargetAttackLockProgress: 0.65
+  m_TargetAttackLockGapMeters: 60
+  m_TargetMarginRampEnd: 0.75
+  m_TargetSlotJitter: 0.22
+  m_TargetPaceMin: 0.75
+  m_TargetPaceMax: 1.3
+  m_TargetPaceRatePerSecond: 0.4
+  m_TargetPlayerSpeedEmaSeconds: 2
+  m_TargetBiasResponse: 6
+  m_OvertakeConfirmSeconds: 0.5
+  m_BalanceEnabled: 1
+  m_GapEmaSeconds: 4
+  m_GapDeadZoneMeters: 25
+  m_GapSaturationMeters: 120
+  m_BalanceMinMultiplier: 0.98
+  m_BalanceMaxMultiplier: 1.06
+  m_BalanceRatePerSecond: 0.02
+  m_PassivePlayerGraceSeconds: 20
+  m_BuffTable: {fileID: 11400000, guid: 6f631a68e5b9ee69b599e545f84dbd1e, type: 2}
+  m_CarCatalog: {fileID: 11400000, guid: a506d30925c44a288951ae96b8a7b3a9, type: 2}
+  m_NitroEffects: {fileID: 11400000, guid: cc460af2177d1b266579cce11a5ad1ba, type: 2}
+  m_NitroLevels: {fileID: 11400000, guid: d2b5a18ce99ec3e0c71f98573e1b1854, type: 2}
+  m_RaceAudio: {fileID: 11400000, guid: 00ec1afa6c7a9d52843e91441a1b07b8, type: 2}
+  m_Environment: {fileID: 11400000, guid: 7150c7193cfbe9c9466ec93737a9aede, type: 2}
+  m_RivalProfiles:
+  - {fileID: 11400000, guid: 3185542f0d274f998e02dde72a7d2822, type: 2}
+  - {fileID: 11400000, guid: cf4f1459dfc8fb297418fab275c55db5, type: 2}
+  - {fileID: 11400000, guid: ee074e5754242df216036b6404de5a44, type: 2}
+  - {fileID: 11400000, guid: 8b4407ab6a6effb69ef2a4fc3aa0b0d8, type: 2}
+  - {fileID: 11400000, guid: 3185542f0d274f998e02dde72a7d2822, type: 2}
+  - {fileID: 11400000, guid: cf4f1459dfc8fb297418fab275c55db5, type: 2}
+  - {fileID: 11400000, guid: 1401c9d65eb133a17d7fd18506e977b9, type: 2}

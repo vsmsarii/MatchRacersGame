@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640f5ea05695e4dd991c5cfb04cef738, type: 3}
+  m_Name: AIProfile_Opportunist
+  m_EditorClassIdentifier: 
+  m_DisplayName: Opportunist
+  m_DecisionIntervalMin: 3.0
+  m_DecisionIntervalMax: 5.0
+  m_IntervalJitter: 0.15
+  m_ReactionDelayMin: 0.15
+  m_ReactionDelayMax: 0.4
+  m_PreferredKeyMin: 2
+  m_PreferredKeyMax: 3
+  m_EnergyReserveRatio: 0.15
+  m_OverflowUrgency: 0.7
+  m_AggressionOverProgress:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.85
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.85
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_RequiresNearbyRival: 1
+  m_EngagementRangeMeters: 25
+  m_OvertakeUrgency: 0.6
+  m_LeadCaution: 0.35
+  m_ComfortGapMeters: 30
+  m_BaseSpeedVariance: 0.02

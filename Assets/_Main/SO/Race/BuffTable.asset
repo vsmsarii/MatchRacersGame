@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3740976f2a7f44a7ba8d197d63fb8474, type: 3}
+  m_Name: BuffTable
+  m_EditorClassIdentifier: 
+  m_WindowSeconds: 1
+  m_EnergyMax: 120
+  m_EnergyRegenPerSecond: 5
+  m_GlobalCooldownSeconds: 0.4
+  m_Levels:
+  - m_Key: 1
+    m_EnergyCost: 0
+  - m_Key: 2
+    m_EnergyCost: 22
+  - m_Key: 3
+    m_EnergyCost: 45
+  - m_Key: 4
+    m_EnergyCost: 72
+  - m_Key: 5
+    m_EnergyCost: 105

@@ -1,0 +1,21 @@
+{
+    "name": "CasualKit.Bootstrap",
+    "rootNamespace": "CasualKit.Bootstrap",
+    "references": [
+        "CasualKit.Core",
+        "CasualKit.UI",
+        "UniTask",
+        "Unity.Addressables",
+        "Unity.ResourceManager",
+        "MatchRacers.Gameplay"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

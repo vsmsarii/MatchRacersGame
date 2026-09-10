@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f5e8d99d5444d075f8c189fcc05ad9, type: 3}
+  m_Name: RaceEnvironment
+  m_EditorClassIdentifier: 
+  m_SunEuler: {x: 48, y: -35, z: 0}
+  m_SunColor: {r: 1, g: 0.97, b: 0.9, a: 1}
+  m_SunIntensity: 1.1
+  m_SunShadows: 2
+  m_ShadowStrength: 0.65
+  m_AmbientSky: {r: 0.32, g: 0.36, b: 0.42, a: 1}
+  m_AmbientEquator: {r: 0.22, g: 0.24, b: 0.28, a: 1}
+  m_AmbientGround: {r: 0.1, g: 0.11, b: 0.13, a: 1}
+  m_BackgroundColor: {r: 0.09, g: 0.11, b: 0.14, a: 1}
+  m_FogEnabled: 1
+  m_FogColor: {r: 0.1, g: 0.12, b: 0.15, a: 1}
+  m_FogStart: 120
+  m_FogEnd: 420
+  m_VolumeProfile: {fileID: 11400000, guid: ab09877e2e707104187f6f83e2f62510, type: 2}
+  m_VolumeWeight: 1

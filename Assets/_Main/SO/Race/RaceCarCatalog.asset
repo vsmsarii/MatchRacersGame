@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df91f7bb37e91d9823336d6f1dcad97, type: 3}
+  m_Name: RaceCarCatalog
+  m_EditorClassIdentifier: 
+  m_Cars:
+  - {fileID: 4746009059318425195, guid: 2a0459182c075894091699b32c6b69f1, type: 3}
+  - {fileID: 8981973902077055070, guid: 3b0114fe920c85c4ca5f0e55bcf6429e, type: 3}
+  - {fileID: 8262641883190967403, guid: 48f8bcf9af8e4444a8603150a89c7890, type: 3}
+  - {fileID: 6871272738580826159, guid: 81fc8bc275b3bd9439cb09faf1311cdc, type: 3}
+  - {fileID: 520504738302483440, guid: 4e8f12c486b79904ca2bed03d10911e1, type: 3}
+  - {fileID: 5880486914151846971, guid: 5627e2447c1c4f346b37adcb06ab0d76, type: 3}
+  - {fileID: 783773398365263524, guid: fc4d9cb15546cf54a9ba5d9b5e5c69b5, type: 3}
+  - {fileID: 4045932634362303613, guid: 8c0bd81a279e0694caeb46cda32a61b8, type: 3}

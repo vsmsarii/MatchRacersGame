@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "name": "CasualKitInput",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "7e4b1c90-2a8d-4f31-9c6e-5b8a0d2f1743",
+            "actions": [
+                {
+                    "name": "Tap",
+                    "type": "Button",
+                    "id": "3c9f6a12-8e4b-4d70-a1c5-92d8e6b0f4a7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5d1a8c34-7b2e-4e91-bf06-1a3c5e7d9f20",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e2b9d45-8c3f-4fa2-c017-2b4d6e8fa031",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20e663b31dad4978a872b8b763e5972, type: 3}
+  m_Name: UIPanelCatalog
+  m_EditorClassIdentifier: 
+  m_Entries:
+  - m_Panel: 1
+    m_Prefab:
+      m_AssetGUID: afc32586eb1cc4c1faab2e9aecae1c21
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - m_Panel: 2
+    m_Prefab:
+      m_AssetGUID: a7c01c5ac06824f84a0881563103790f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - m_Panel: 3
+    m_Prefab:
+      m_AssetGUID: 18e6764decbd444fc9c2f85b8a3ca5cf
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - m_Panel: 4
+    m_Prefab:
+      m_AssetGUID: e8ca9c6488276438b83933720aabdf79
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - m_Panel: 5
+    m_Prefab:
+      m_AssetGUID: f6a7b8c9d0e1425364758697a8b9c0d1
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - m_Panel: 6
+    m_Prefab:
+      m_AssetGUID: a0123456789abcdef0123456789abcde
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - m_Panel: 7
+    m_Prefab:
+      m_AssetGUID: 5e771105000000000000000000000001
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0

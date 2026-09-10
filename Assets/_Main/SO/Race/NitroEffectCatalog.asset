@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d93f271f3d9e93aeb7abfc1bb288dc, type: 3}
+  m_Name: NitroEffectCatalog
+  m_EditorClassIdentifier: 
+  m_ExhaustNodeFilter: _Pipe_
+  m_Entries:
+  - m_Effect: 1
+    m_Prefab: {fileID: 0}
+    m_LocalPosition: {x: 0, y: 0, z: 0}
+    m_LocalEuler: {x: 0, y: 180, z: 0}
+    m_LocalScale: 1
+  - m_Effect: 2
+    m_Prefab: {fileID: 0}
+    m_LocalPosition: {x: 0, y: 0, z: 0}
+    m_LocalEuler: {x: 0, y: 180, z: 0}
+    m_LocalScale: 1
+  - m_Effect: 3
+    m_Prefab: {fileID: 0}
+    m_LocalPosition: {x: 0, y: 0, z: 0}
+    m_LocalEuler: {x: 0, y: 180, z: 0}
+    m_LocalScale: 1
+  m_MaxParticlesPerSystem: 48
