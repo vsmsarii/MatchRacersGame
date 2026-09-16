@@ -8,6 +8,8 @@ namespace MatchRacers
         float Time { get; }
         ERaceState State { get; }
         float RaceProgress { get; }
+        float InterpolationAlpha { get; }
+        BuffTableSO BuffTable { get; }
 
         CarState GetCar(int carIndex);
         int GetPosition(int carIndex);

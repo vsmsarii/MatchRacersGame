@@ -39,8 +39,6 @@ namespace CasualKit.Bootstrap
             services.Register<IInputService>(new InputService(assets));
             services.Register<IAudioService>(new AudioSystem(assets));
             services.Register<ISaveService>(save);
-            services.Register<IWalletService>(new WalletService(save));
-            services.Register<IIAPService>(new IAPService(assets, save));
             services.Register<IAnalyticsSystem>(analytics);
             services.Register<IAdsService>(new NullAdsService());
             services.Register<IRemoteConfig>(new NullRemoteConfig());
@@ -52,14 +50,11 @@ namespace CasualKit.Bootstrap
             IAssetProvider assets = context.Services.Get<IAssetProvider>();
             IInputService input = context.Services.Get<IInputService>();
             IAudioService audio = context.Services.Get<IAudioService>();
-            IIAPService iap = context.Services.Get<IIAPService>();
-            ISaveService save = context.Services.Get<ISaveService>();
             IRemoteConfig remoteConfig = context.Services.Get<IRemoteConfig>();
 
             await assets.InitializeAsync(context.CancellationToken);
             await input.InitializeAsync(context.CancellationToken);
             await audio.InitializeAsync(context.CancellationToken);
-            await iap.InitializeAsync(context.CancellationToken);
             await remoteConfig.FetchAsync(context.CancellationToken);
 
             GlobalSettingsSO globalSettings = await assets.LoadAsset<GlobalSettingsSO>(
@@ -69,7 +64,6 @@ namespace CasualKit.Bootstrap
             {
                 context.GlobalSettings = globalSettings;
                 Application.targetFrameRate = globalSettings.TargetFrameRate;
-                save.ConfigureHearts(globalSettings.DefaultHeartCount, globalSettings.HeartRefillMinutes);
             }
             else
             {

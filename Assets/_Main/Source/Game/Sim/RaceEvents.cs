@@ -1,5 +1,19 @@
 namespace MatchRacers
 {
+    public readonly struct PlayerBuffRequested
+    {
+        public readonly int Key;
+
+        public PlayerBuffRequested(int key)
+        {
+            Key = key;
+        }
+    }
+
+    public readonly struct RaceRestartRequested
+    {
+    }
+
     public readonly struct BuffAccepted
     {
         public readonly int CarIndex;

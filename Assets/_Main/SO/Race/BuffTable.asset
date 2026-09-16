@@ -19,11 +19,16 @@ MonoBehaviour:
   m_Levels:
   - m_Key: 1
     m_EnergyCost: 0
+    m_CooldownSeconds: 2
   - m_Key: 2
-    m_EnergyCost: 22
+    m_EnergyCost: 24
+    m_CooldownSeconds: 6
   - m_Key: 3
-    m_EnergyCost: 45
+    m_EnergyCost: 46
+    m_CooldownSeconds: 11
   - m_Key: 4
-    m_EnergyCost: 72
+    m_EnergyCost: 66
+    m_CooldownSeconds: 16
   - m_Key: 5
-    m_EnergyCost: 105
+    m_EnergyCost: 84
+    m_CooldownSeconds: 24

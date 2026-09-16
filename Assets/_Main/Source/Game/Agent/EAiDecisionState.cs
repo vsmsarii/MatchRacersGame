@@ -8,5 +8,7 @@ namespace MatchRacers
         Saving = 3,
         NoTarget = 4,
         Busy = 5,
+        Commanded = 6,
+        Held = 7,
     }
 }

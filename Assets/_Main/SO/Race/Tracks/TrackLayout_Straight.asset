@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1e4a92b0d34f5e8a61c3d9e2f4b701, type: 3}
+  m_Name: TrackLayout_Straight
+  m_EditorClassIdentifier: 
+  m_DisplayName: Straight
+  m_RaceLengthMeters: 1877
+  m_Environment: {fileID: 11400000, guid: 2d1b78d06c884619b5f09be2eb6b215f, type: 2}
+  m_LobbyMusic: {fileID: 8300000, guid: adfc60035b5844261853b6b62c78244a, type: 3}
+  m_LobbyMusicVolume: 0.8
+  m_RaceMusic: {fileID: 8300000, guid: 1fe2dd81de9f54e80b6268aa01ce427a, type: 3}
+  m_RaceMusicVolume: 0.8
+  m_StartPosition: {x: 0, y: 0, z: 0}
+  m_StartHeading: 90
+  m_SampleSpacing: 1
+  m_ClosedLoop: 0
+  m_Segments:
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 115
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 1162
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 60
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  m_PropCatalog: {fileID: 11400000, guid: b5d2e7f41a9c4e3d8f60a1c2d3e4f501, type: 2}
+  m_Props:
+  - m_Prop: 1
+    m_Side: 2
+    m_Distance: 0
+    m_EdgeOffset: 1.2
+    m_Height: 0
+    m_Count: 313
+    m_Spacing: 6
+    m_Yaw: 0
+    m_Scale: 1
+  - m_Prop: 2
+    m_Side: 2
+    m_Distance: 0
+    m_EdgeOffset: 2.5
+    m_Height: 0
+    m_Count: 960
+    m_Spacing: 2
+    m_Yaw: 0
+    m_Scale: 1
+  - m_Prop: 2
+    m_Side: 2
+    m_Distance: 0
+    m_EdgeOffset: 2.5
+    m_Height: 0.45
+    m_Count: 960
+    m_Spacing: 2
+    m_Yaw: 0
+    m_Scale: 1
+  m_Landmarks: []
+  m_RoadMaterial: {fileID: 0}
+  m_StripeMaterial: {fileID: 0}
+  m_DistanceMarkers: 1
+  m_FinishGate: 1
+  m_Ground: 1
+  m_GroundMaterial: {fileID: 2100000, guid: 827db1eee16ca7e4eb99f7dde8335337, type: 2}
+  m_GroundMargin: 120
+  m_GroundHeight: -0.05

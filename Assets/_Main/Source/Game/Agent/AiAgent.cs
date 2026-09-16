@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MatchRacers
@@ -10,6 +11,8 @@ namespace MatchRacers
         private readonly AiProfileSO m_Profile;
         private readonly BuffTableSO m_BuffTable;
 
+        private readonly List<int> m_Ready = new List<int>(BuffTableSO.MaxKey);
+        private CarState m_Car;
         private Xorshift m_Rng;
         private float m_PhaseOffset;
         private float m_NextDecisionTime;
@@ -60,6 +63,22 @@ namespace MatchRacers
                 return 0;
             }
 
+            if (car.CommandedBuffKey > 0)
+            {
+                int commanded = car.CommandedBuffKey;
+                car.CommandedBuffKey = 0;
+                m_PendingKey = 0;
+                m_LastFiredKey = commanded;
+                m_State = EAiDecisionState.Commanded;
+                return commanded;
+            }
+
+            if (m_PendingKey != 0 && (car.HoldBuffs || m_PendingKey > car.MaxBuffKey))
+            {
+                m_PendingKey = 0;
+                m_State = EAiDecisionState.Held;
+            }
+
             if (m_PendingKey != 0)
             {
                 if (stepTime < m_FireTime)
@@ -105,13 +124,16 @@ namespace MatchRacers
             bool hasAheadTarget = view.TryGetCarAhead(m_CarIndex, out _, out float gapAhead);
             bool hasBehindTarget = view.TryGetCarBehind(m_CarIndex, out _, out float gapBehind);
 
-            if (m_Profile.RequiresNearbyRival && !HasRivalInRange(hasAheadTarget, gapAhead, hasBehindTarget, gapBehind))
-            {
-                m_State = EAiDecisionState.NoTarget;
-                return;
-            }
+            bool isolated = m_Profile.RequiresNearbyRival &&
+                            !HasRivalInRange(hasAheadTarget, gapAhead, hasBehindTarget, gapBehind);
 
             float score = m_Profile.EvaluateAggression(progress);
+
+            if (isolated)
+            {
+                score *= m_Profile.IsolatedAttackScale;
+                m_State = EAiDecisionState.NoTarget;
+            }
 
             if (hasAheadTarget && gapAhead <= m_Profile.EngagementRangeMeters)
                 score += m_Profile.OvertakeUrgency * (1f - score);
@@ -136,6 +158,7 @@ namespace MatchRacers
                 return;
             }
 
+            m_Car = car;
             int key = PickKey(usableEnergy);
             if (key == 0)
             {
@@ -161,22 +184,22 @@ namespace MatchRacers
         private int PickKey(float usableEnergy)
         {
             int min = m_Profile.PreferredKeyMin;
-            int max = m_Profile.PreferredKeyMax;
-            int highestAffordable = 0;
+            int max = Mathf.Min(m_Profile.PreferredKeyMax, m_Car.MaxBuffKey);
+            m_Ready.Clear();
 
-            for (int key = max; key >= min; key--)
+            for (int key = min; key <= max; key++)
             {
+                if (m_Car.KeyCooldownSteps[key] > 0)
+                    continue;
+
                 if (m_BuffTable.TryGetEnergyCost(key, out float cost) && cost <= usableEnergy)
-                {
-                    highestAffordable = key;
-                    break;
-                }
+                    m_Ready.Add(key);
             }
 
-            if (highestAffordable < min)
+            if (m_Ready.Count == 0)
                 return 0;
 
-            return m_Rng.Range(min, highestAffordable + 1);
+            return m_Ready[m_Rng.Range(0, m_Ready.Count)];
         }
 
         private void ScheduleNextDecision(float stepTime)

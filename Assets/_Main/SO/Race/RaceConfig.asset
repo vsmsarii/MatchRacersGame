@@ -12,31 +12,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e9f4dcd736848ca9fd59c26805385a, type: 3}
   m_Name: RaceConfig
   m_EditorClassIdentifier: 
-  m_BaseSpeed: 12
-  m_RaceLengthMeters: 1000
+  m_BaseSpeed: 30
+  m_RaceLengthMeters: 1737.4642
   m_CountdownSeconds: 3
   m_LaneWidthMeters: 2.4
   m_RunoutMeters: 60
   m_RoadShoulderMeters: 3
-  m_Waypoints: []
+  m_TrackLayout: {fileID: 0}
+  m_TrackCatalog: {fileID: 11400000, guid: 9aa1d88cb0084dda8ff4076e4392777d, type: 2}
   m_CarsMoveLeftToRight: 1
-  m_CameraSideDistance: 22
-  m_CameraHeight: 11
-  m_CameraLookAhead: 2
-  m_CameraFollowSmoothing: 10
+  m_CameraSideDistance: 21.9
+  m_CameraHeight: 11.3
+  m_CameraLookAhead: 5.04
+  m_CameraFollowSmoothing: 20
   m_CameraFieldOfView: 50
   m_CameraBuffFovGain: 1
   m_CameraPackBias: 0
+  m_CameraBuffPunch: 5
+  m_CameraShakeScale: 1
+  m_CameraShakeFrequency: 25
+  m_CameraShakeKick: 2
+  m_CameraShakeKickDecay: 8
+  m_CameraShakeSustain: 0.45
+  m_CameraShakeRollPerMeter: 1.5
   m_LaneChangeSmoothing: 6
   m_BankPerBuffLevel: 1.8
   m_WheelRadiusMeters: 0.34
   m_BuffTrailSeconds: 0.35
   m_PlayerMarkerHeight: 2.6
+  m_FinishCoastDeceleration: 9
+  m_FinishCoastMinMeters: 6
+  m_FinishCoastMaxMeters: 35
+  m_FinishCoastSpreadMeters: 5
   m_FixedStepHz: 120
   m_TargetSeparationMeters: 12
   m_TargetMarginStartMeters: 6
   m_TargetMarginAheadEndMeters: 48
-  m_TargetMarginBehindEndMeters: 16
+  m_TargetMarginBehindEndMeters: 24
   m_TargetAttackLockProgress: 0.65
   m_TargetAttackLockGapMeters: 60
   m_TargetMarginRampEnd: 0.75
@@ -46,6 +58,57 @@ MonoBehaviour:
   m_TargetPaceRatePerSecond: 0.4
   m_TargetPlayerSpeedEmaSeconds: 2
   m_TargetBiasResponse: 6
+  m_TargetEnvelopeTauStart: 0.3
+  m_TargetEnvelopeTauEnd: 0.8
+  m_TargetAheadSlackSeconds: 1
+  m_TargetBehindSlackSeconds: 0.5
+  m_TargetAheadCriticalSeconds: -0.3
+  m_TargetBehindCriticalSeconds: -0.3
+  m_TargetNearInnerMeters: 12
+  m_TargetNearOuterMeters: 30
+  m_TargetNearPaceBand: 0.03
+  m_TargetCorrectionHorizonSeconds: 6
+  m_TargetSlotNitroCap: 1
+  m_TargetSlotNitroToleranceMeters: 10
+  m_TargetChallengeEnabled: 1
+  m_TargetChallengeStartProgress: 0.08
+  m_TargetChallengeEndProgress: 0.5
+  m_TargetChallengeIntervalMinSeconds: 2
+  m_TargetChallengeIntervalMaxSeconds: 6
+  m_TargetChallengeMaxConcurrent: 2
+  m_TargetChallengeRangeMeters: 60
+  m_TargetChallengeLeadMeters: 12
+  m_TargetChallengeHoldSeconds: 2
+  m_TargetChallengeMinHeadroomSeconds: 2
+  m_TargetChallengeFallbackPace: 0.1
+  m_TargetBehindSeparationMeters: 6
+  m_TargetWanderMeters: 5
+  m_TargetWanderPeriodMinSeconds: 8
+  m_TargetWanderPeriodMaxSeconds: 16
+  m_TargetNearBandSpread: 0.3
+  m_TargetRivalSpacingMeters: 6
+  m_TargetRivalStuckSpeed: 1.2
+  m_TargetRivalSpacingPace: 0.04
+  m_TargetRivalGlueSeconds: 1
+  m_TargetLaunchSeconds: 3
+  m_TargetLaunchSpread: 0.2
+  m_TargetAheadSlotNitroCap: 1
+  m_TargetComebackEnabled: 1
+  m_TargetComebackStartProgress: 0.1
+  m_TargetComebackEndProgress: 0.6
+  m_TargetComebackIntervalMinSeconds: 3
+  m_TargetComebackIntervalMaxSeconds: 8
+  m_TargetComebackMaxConcurrent: 1
+  m_TargetComebackRangeMeters: 90
+  m_TargetComebackMinMarginSeconds: 3
+  m_TargetComebackBehindMeters: 6
+  m_TargetComebackLeadMeters: 20
+  m_TargetComebackReturnTimeoutSeconds: 16
+  m_TargetChaseEnabled: 1
+  m_TargetChaseSlots: 2
+  m_TargetChaseLagMeters: 20
+  m_TargetChaseReactionMinSeconds: 0.3
+  m_TargetChaseReactionMaxSeconds: 0.9
   m_OvertakeConfirmSeconds: 0.5
   m_BalanceEnabled: 1
   m_GapEmaSeconds: 4
@@ -57,10 +120,12 @@ MonoBehaviour:
   m_PassivePlayerGraceSeconds: 20
   m_BuffTable: {fileID: 11400000, guid: 6f631a68e5b9ee69b599e545f84dbd1e, type: 2}
   m_CarCatalog: {fileID: 11400000, guid: a506d30925c44a288951ae96b8a7b3a9, type: 2}
-  m_NitroEffects: {fileID: 11400000, guid: cc460af2177d1b266579cce11a5ad1ba, type: 2}
+  m_CarVfx: {fileID: 11400000, guid: 6e9a1c3d5f7b4a8c0d2e4f6a8b1c3d5e, type: 2}
   m_NitroLevels: {fileID: 11400000, guid: d2b5a18ce99ec3e0c71f98573e1b1854, type: 2}
-  m_RaceAudio: {fileID: 11400000, guid: 00ec1afa6c7a9d52843e91441a1b07b8, type: 2}
+  m_EngineAudio: {fileID: 11400000, guid: f9b2d4e6a8104c3b9d7f5a2b4c6e8103, type: 2}
   m_Environment: {fileID: 11400000, guid: 7150c7193cfbe9c9466ec93737a9aede, type: 2}
+  m_LitShader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_UnlitShader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
   m_RivalProfiles:
   - {fileID: 11400000, guid: 3185542f0d274f998e02dde72a7d2822, type: 2}
   - {fileID: 11400000, guid: cf4f1459dfc8fb297418fab275c55db5, type: 2}

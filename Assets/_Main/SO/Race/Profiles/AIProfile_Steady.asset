@@ -19,7 +19,7 @@ MonoBehaviour:
   m_ReactionDelayMin: 0.15
   m_ReactionDelayMax: 0.35
   m_PreferredKeyMin: 2
-  m_PreferredKeyMax: 2
+  m_PreferredKeyMax: 3
   m_EnergyReserveRatio: 0.1
   m_OverflowUrgency: 0.6
   m_AggressionOverProgress:
@@ -47,8 +47,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_RequiresNearbyRival: 0
+  m_IsolatedAttackScale: 1
   m_EngagementRangeMeters: 25
   m_OvertakeUrgency: 0.2
   m_LeadCaution: 0.35
   m_ComfortGapMeters: 40
-  m_BaseSpeedVariance: 0.015
+  m_BaseSpeedVariance: 0.025

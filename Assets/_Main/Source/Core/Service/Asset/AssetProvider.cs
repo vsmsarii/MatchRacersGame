@@ -4,7 +4,9 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace CasualKit.Core
 {
@@ -55,6 +57,20 @@ namespace CasualKit.Core
 
             Addressables.Release(handle);
             m_AssetHandles.Remove(key);
+        }
+
+        public bool HasKey(string key)
+        {
+            if (string.IsNullOrEmpty(key))
+                return false;
+
+            foreach (IResourceLocator locator in Addressables.ResourceLocators)
+            {
+                if (locator.Locate(key, null, out IList<IResourceLocation> locations) && locations != null && locations.Count > 0)
+                    return true;
+            }
+
+            return false;
         }
 
         public async UniTask<GameObject> Instantiate(string key, Transform parent = null, CancellationToken cancellationToken = default)

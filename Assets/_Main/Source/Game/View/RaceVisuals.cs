@@ -25,12 +25,11 @@ namespace MatchRacers
             return 0.18f + 0.11f * Mathf.Max(0, key - 1);
         }
 
-        public static Material CreateUnlitMaterial(Color color)
+        public static Material CreateUnlitMaterial(Shader shader, Color color)
         {
-            Shader shader = Shader.Find("Universal Render Pipeline/Unlit");
             if (shader == null)
             {
-                EditorLog.Error("URP/Unlit shader not found. Assign the URP pipeline asset in Graphics and Quality settings.");
+                EditorLog.Error("URP/Unlit shader not assigned on RaceConfig.");
                 return null;
             }
 

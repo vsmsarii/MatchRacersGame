@@ -19,13 +19,13 @@ MonoBehaviour:
   - 90210
   m_InputMode: 1
   m_Timeline:
-  - m_TimeSeconds: 2
+  - m_TimeSeconds: 1.5
+    m_Key: 5
+  - m_TimeSeconds: 8.5
     m_Key: 4
-  - m_TimeSeconds: 8
+  - m_TimeSeconds: 17.5
     m_Key: 3
-  - m_TimeSeconds: 16
-    m_Key: 4
-  - m_TimeSeconds: 24
+  - m_TimeSeconds: 22.5
     m_Key: 2
   m_RepeatKey: 5
   m_RepeatIntervalSeconds: 0.2

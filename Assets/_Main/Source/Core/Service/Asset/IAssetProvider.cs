@@ -9,6 +9,7 @@ namespace CasualKit.Core
         UniTask InitializeAsync(CancellationToken cancellationToken = default);
         UniTask<T> LoadAsset<T>(string key, CancellationToken cancellationToken = default) where T : UnityEngine.Object;
         void ReleaseAsset(string key);
+        bool HasKey(string key);
         UniTask<GameObject> Instantiate(string key, Transform parent = null, CancellationToken cancellationToken = default);
         void ReleaseInstance(GameObject instance);
     }

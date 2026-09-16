@@ -43,7 +43,12 @@ namespace MatchRacers
         public uint Seed => m_Seed;
         public BuffSystem Buffs => m_Buffs;
         public RaceConfigSO Config => m_Config;
+        public BuffTableSO BuffTable => m_Config.BuffTable;
         public float CountdownRemaining => m_CountdownStepsRemaining * m_Config.FixedDeltaTime;
+        public float InterpolationAlpha => m_State == ERaceState.Racing
+            ? Mathf.Clamp01(m_Accumulator / m_Config.FixedDeltaTime)
+            : 1f;
+        public float RenderTime => m_Time - (1f - InterpolationAlpha) * m_Config.FixedDeltaTime;
         public bool EmitEvents { get => m_EmitEvents; set => m_EmitEvents = value; }
         public CatchUpBalancer Balancer => m_Balancer;
         public TargetOrderDirector Director => m_Director;
@@ -300,6 +305,8 @@ namespace MatchRacers
             for (int i = 0; i < m_Cars.Length; i++)
             {
                 CarState car = m_Cars[i];
+                car.PreviousDistance = car.Distance;
+
                 if (car.Finished)
                     continue;
 
@@ -343,8 +350,11 @@ namespace MatchRacers
             {
                 CarState car = m_Cars[m_FinishBuffer[i]];
                 car.FinishOrder = ++m_FinishedCount;
+                car.FinishSpeed = car.Speed;
+                car.Speed = 0f;
                 car.ActiveBuffKey = 0;
                 car.BuffStepsRemaining = 0;
+                car.LaunchStepsRemaining = 0;
                 Emit(new CarFinished(car.CarIndex, car.FinishOrder, car.FinishTime));
             }
         }

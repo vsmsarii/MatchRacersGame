@@ -19,28 +19,30 @@ MonoBehaviour:
   - 90210
   m_InputMode: 1
   m_Timeline:
-  - m_TimeSeconds: 3
+  - m_TimeSeconds: 1.5
+    m_Key: 5
+  - m_TimeSeconds: 4.4
     m_Key: 3
-  - m_TimeSeconds: 9
+  - m_TimeSeconds: 9.0
     m_Key: 2
-  - m_TimeSeconds: 15
+  - m_TimeSeconds: 15.6
+    m_Key: 2
+  - m_TimeSeconds: 22.2
+    m_Key: 2
+  - m_TimeSeconds: 28.8
+    m_Key: 2
+  - m_TimeSeconds: 33.5
     m_Key: 3
-  - m_TimeSeconds: 22
+  - m_TimeSeconds: 38.5
     m_Key: 2
-  - m_TimeSeconds: 28
-    m_Key: 4
-  - m_TimeSeconds: 35
+  - m_TimeSeconds: 45.1
     m_Key: 2
-  - m_TimeSeconds: 41
+  - m_TimeSeconds: 51.7
+    m_Key: 2
+  - m_TimeSeconds: 58.3
+    m_Key: 2
+  - m_TimeSeconds: 62.5
     m_Key: 3
-  - m_TimeSeconds: 47
-    m_Key: 2
-  - m_TimeSeconds: 53
-    m_Key: 4
-  - m_TimeSeconds: 58
-    m_Key: 2
-  - m_TimeSeconds: 62
-    m_Key: 2
   m_RepeatKey: 5
   m_RepeatIntervalSeconds: 0.2
   m_RepeatStartSeconds: 0

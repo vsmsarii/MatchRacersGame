@@ -12,18 +12,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f5e8d99d5444d075f8c189fcc05ad9, type: 3}
   m_Name: RaceEnvironment
   m_EditorClassIdentifier: 
-  m_SunEuler: {x: 48, y: -35, z: 0}
-  m_SunColor: {r: 1, g: 0.97, b: 0.9, a: 1}
-  m_SunIntensity: 1.1
+  m_SunEuler: {x: 40, y: -20, z: 0}
+  m_SunColor: {r: 0.78, g: 0.84, b: 1, a: 1}
+  m_SunIntensity: 1.15
   m_SunShadows: 2
-  m_ShadowStrength: 0.65
-  m_AmbientSky: {r: 0.32, g: 0.36, b: 0.42, a: 1}
-  m_AmbientEquator: {r: 0.22, g: 0.24, b: 0.28, a: 1}
-  m_AmbientGround: {r: 0.1, g: 0.11, b: 0.13, a: 1}
-  m_BackgroundColor: {r: 0.09, g: 0.11, b: 0.14, a: 1}
+  m_ShadowStrength: 0.7
+  m_AmbientSky: {r: 0.27, g: 0.3, b: 0.42, a: 1}
+  m_AmbientEquator: {r: 0.2, g: 0.19, b: 0.27, a: 1}
+  m_AmbientGround: {r: 0.07, g: 0.07, b: 0.09, a: 1}
+  m_BackgroundColor: {r: 0.06, g: 0.04, b: 0.1, a: 1}
   m_FogEnabled: 1
-  m_FogColor: {r: 0.1, g: 0.12, b: 0.15, a: 1}
-  m_FogStart: 120
-  m_FogEnd: 420
-  m_VolumeProfile: {fileID: 11400000, guid: ab09877e2e707104187f6f83e2f62510, type: 2}
+  m_FogColor: {r: 0.1, g: 0.08, b: 0.17, a: 1}
+  m_FogStart: 110
+  m_FogEnd: 520
+  m_VolumeProfile: {fileID: 11400000, guid: b9582abf352d440885e124757a7e0bcd, type: 2}
   m_VolumeWeight: 1
+  m_Skybox: {fileID: 2100000, guid: 258d5446222c49798ff1d82a1049537c, type: 2}
+  m_SkyReflections: 1
+  m_ReflectionIntensity: 0.7
+  m_BackdropStyle: 1
+  m_BackdropMaterial: {fileID: 2100000, guid: 7c2e9a4b1d6f4382b5e07a9c3d1f6e24, type: 2}
+  m_BackdropSeed: 7
+  m_BackdropLayers:
+  - m_Offset: 38
+    m_Depth: 18
+    m_MinHeight: 6
+    m_MaxHeight: 26
+    m_Spacing: 16
+    m_Color: {r: 0.06, g: 0.055, b: 0.1, a: 1}
+    m_Windows: 0.35
+  - m_Offset: 70
+    m_Depth: 26
+    m_MinHeight: 20
+    m_MaxHeight: 55
+    m_Spacing: 22
+    m_Color: {r: 0.075, g: 0.06, b: 0.13, a: 1}
+    m_Windows: 0.25
+  - m_Offset: 120
+    m_Depth: 40
+    m_MinHeight: 40
+    m_MaxHeight: 110
+    m_Spacing: 30
+    m_Color: {r: 0.1, g: 0.075, b: 0.17, a: 1}
+    m_Windows: 0.16
+  m_GroundPattern: 1
+  m_GroundColor: {r: 0.13, g: 0.14, b: 0.16, a: 1}
+  m_GroundPatchColor: {r: 0.18, g: 0.17, b: 0.22, a: 1}
+  m_GroundDetailColor: {r: 0.09, g: 0.09, b: 0.11, a: 1}
+  m_GroundTileMeters: 160
+  m_GroundSmoothness: 0.1
+  m_VergeWidth: 4
+  m_VergeColor: {r: 0.08, g: 0.08, b: 0.1, a: 1}

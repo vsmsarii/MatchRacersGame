@@ -62,6 +62,7 @@ namespace MatchRacers.Tests
         }
 
         [TestCase(30)]
+        [TestCase(60)]
         [TestCase(120)]
         public void BuffDistanceIsFrameRateIndependent(int framesPerSecond)
         {
@@ -78,9 +79,10 @@ namespace MatchRacers.Tests
 
             float before = car.Distance;
             float windowSeconds = m_Config.BuffTable.WindowSeconds;
+            float launchSeconds = m_Config.BuffTable.GetLaunchSteps(m_Config.FixedStepHz) * m_Config.FixedDeltaTime;
             float elapsed = 0f;
 
-            while (elapsed < windowSeconds + frameDelta)
+            while (elapsed < launchSeconds + windowSeconds + frameDelta)
             {
                 race.Advance(frameDelta);
                 elapsed += frameDelta;
@@ -89,7 +91,8 @@ namespace MatchRacers.Tests
                     break;
             }
 
-            float expected = 4 * m_Config.BaseSpeed * windowSeconds;
+            float expected = 4 * m_Config.BaseSpeed * windowSeconds
+                             + m_Config.BaseSpeed * m_Config.BuffTable.LaunchDipMultiplier * launchSeconds;
             float travelled = car.Distance - before;
 
             Assert.AreEqual(expected, travelled, expected * 0.01f,

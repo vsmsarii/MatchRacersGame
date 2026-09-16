@@ -10,13 +10,16 @@ namespace CasualKit.UI
         [Serializable]
         private struct UIPanelCatalogEntry
         {
+            [Tooltip("Bu satırın tanımladığı panel kimliği. Kod panelleri bu enum ile açar.")]
             [SerializeField] private EUIPanel m_Panel;
+            [Tooltip("Panelin Addressable prefabı. Panel açılınca bu prefab yaratılır, sahnede hazır UI tutulmaz.")]
             [SerializeField] private AssetReferenceGameObject m_Prefab;
 
             public EUIPanel Panel => m_Panel;
             public AssetReferenceGameObject Prefab => m_Prefab;
         }
 
+        [Tooltip("Oyundaki bütün UI panellerinin listesi. Yeni panel eklerken EUIPanel değerini ve prefabını buraya ekle.")]
         [SerializeField] private UIPanelCatalogEntry[] m_Entries;
 
         public bool TryGetPrefab(EUIPanel panel, out AssetReferenceGameObject prefab)

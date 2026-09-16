@@ -20,6 +20,8 @@ namespace MatchRacers
         private readonly StringBuilder m_Samples = new StringBuilder(1 << 16);
         private readonly StringBuilder m_Events = new StringBuilder(1 << 12);
         private readonly List<float> m_BalanceSum = new List<float>();
+        private readonly List<int> m_PushSamples = new List<int>();
+        private readonly List<int> m_HoldSamples = new List<int>();
 
         private float m_NextSampleTime;
         private int m_SampleCount;
@@ -48,7 +50,11 @@ namespace MatchRacers
                 : Path.Combine(Application.persistentDataPath, FolderName);
 
             for (int i = 0; i < simulation.CarCount; i++)
+            {
                 m_BalanceSum.Add(0f);
+                m_PushSamples.Add(0);
+                m_HoldSamples.Add(0);
+            }
 
             WriteSampleHeader();
             m_Events.AppendLine("time,carIndex,event,key,detail");
@@ -93,7 +99,8 @@ namespace MatchRacers
                     .Append(",car").Append(i).Append("_buff")
                     .Append(",car").Append(i).Append("_energy")
                     .Append(",car").Append(i).Append("_balance")
-                    .Append(",car").Append(i).Append("_position");
+                    .Append(",car").Append(i).Append("_position")
+                    .Append(",car").Append(i).Append("_intervention");
             }
 
             m_Samples.AppendLine();
@@ -142,7 +149,13 @@ namespace MatchRacers
                     .Append(',').Append(car.ActiveBuffKey)
                     .Append(',').Append(F(car.Energy))
                     .Append(',').Append(car.BalanceMultiplier.ToString("0.0000", Inv))
-                    .Append(',').Append(m_Simulation.GetPosition(i));
+                    .Append(',').Append(m_Simulation.GetPosition(i))
+                    .Append(',').Append(car.PaceIntervention);
+
+                if (car.PaceIntervention > 0)
+                    m_PushSamples[i]++;
+                else if (car.PaceIntervention < 0)
+                    m_HoldSamples[i]++;
             }
 
             m_Samples.AppendLine();
@@ -239,6 +252,8 @@ namespace MatchRacers
                     .Append(", \"spentEnergy\": ").Append(F(car.SpentEnergy))
                     .Append(", \"baseSpeedMultiplier\": ").Append(car.BaseSpeedMultiplier.ToString("0.0000", Inv))
                     .Append(", \"averageBalance\": ").Append((m_BalanceSum[i] / divisor).ToString("0.0000", Inv))
+                    .Append(", \"pushSamples\": ").Append(m_PushSamples[i])
+                    .Append(", \"holdSamples\": ").Append(m_HoldSamples[i])
                     .Append(" }").AppendLine(i == m_Simulation.CarCount - 1 ? string.Empty : ",");
             }
 

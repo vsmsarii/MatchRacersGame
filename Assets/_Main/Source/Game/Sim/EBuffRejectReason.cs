@@ -9,5 +9,6 @@ namespace MatchRacers
         Cooldown = 4,
         InsufficientEnergy = 5,
         AlreadyFinished = 6,
+        KeyCooldown = 7,
     }
 }

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a1c3d5f7094b2a8c6e4f1a3b5d7092, type: 3}
+  m_Name: EngineAudioTable
+  m_EditorClassIdentifier: 
+  m_Layers:
+  - m_Tier: 0
+    m_Sound: 17
+    m_Pitch: 0.75
+    m_Volume: 0.35
+  - m_Tier: 1
+    m_Sound: 18
+    m_Pitch: 1
+    m_Volume: 0.5
+  - m_Tier: 2
+    m_Sound: 19
+    m_Pitch: 1.12
+    m_Volume: 0.6
+  - m_Tier: 3
+    m_Sound: 20
+    m_Pitch: 1.25
+    m_Volume: 0.7
+  - m_Tier: 4
+    m_Sound: 21
+    m_Pitch: 1.4
+    m_Volume: 0.8
+  - m_Tier: 5
+    m_Sound: 22
+    m_Pitch: 1.55
+    m_Volume: 0.9
+  m_CrossfadeSeconds: 0.25
+  m_PitchRate: 3

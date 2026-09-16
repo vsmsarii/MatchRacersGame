@@ -6,6 +6,7 @@ namespace MatchRacers
     public sealed class RaceCarCatalogSO : ScriptableObject
     {
         [Header("Cars")]
+        [Tooltip("Sekiz aracın prefabı. 0 oyuncu, 1-7 rakip. Sıra, araç indeksiyle birebir eşleşir.")]
         [SerializeField] private GameObject[] m_Cars = new GameObject[RaceConfigSO.CarCount];
 
         public GameObject GetPrefab(int carIndex)

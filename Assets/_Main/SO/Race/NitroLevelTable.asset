@@ -21,6 +21,7 @@ MonoBehaviour:
     m_Pitch: 0.85
     m_Volume: 0.35
     m_LightIntensity: 0
+    m_CameraShake: 0
   - m_Key: 2
     m_Color: {r: 0.35, g: 0.8, b: 0.92, a: 1}
     m_EmissionScale: 0.6
@@ -29,6 +30,7 @@ MonoBehaviour:
     m_Pitch: 0.95
     m_Volume: 0.5
     m_LightIntensity: 1.5
+    m_CameraShake: 0.05
   - m_Key: 3
     m_Color: {r: 0.4, g: 0.88, b: 0.52, a: 1}
     m_EmissionScale: 0.85
@@ -37,6 +39,7 @@ MonoBehaviour:
     m_Pitch: 1.05
     m_Volume: 0.65
     m_LightIntensity: 3
+    m_CameraShake: 0.1
   - m_Key: 4
     m_Color: {r: 0.98, g: 0.75, b: 0.25, a: 1}
     m_EmissionScale: 1.2
@@ -45,6 +48,7 @@ MonoBehaviour:
     m_Pitch: 1.18
     m_Volume: 0.8
     m_LightIntensity: 5
+    m_CameraShake: 0.17
   - m_Key: 5
     m_Color: {r: 1.0, g: 0.42, b: 0.22, a: 1}
     m_EmissionScale: 1.7
@@ -53,5 +57,6 @@ MonoBehaviour:
     m_Pitch: 1.32
     m_Volume: 1.0
     m_LightIntensity: 8
+    m_CameraShake: 0.26
   m_EntryRampSeconds: 0.08
   m_ExitFadeSeconds: 0.45

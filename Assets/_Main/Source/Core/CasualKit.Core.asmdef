@@ -5,9 +5,7 @@
         "UniTask",
         "Unity.Addressables",
         "Unity.ResourceManager",
-        "Unity.InputSystem",
-        "Unity.Purchasing",
-        "Unity.Purchasing.Stores"
+        "Unity.InputSystem"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

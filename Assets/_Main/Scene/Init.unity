@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIRoot
       objectReference: {fileID: 0}
+    - target: {fileID: 68852948614563806, guid: 9f7b1902dd57d4b1dabb0a9c53cffe19, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 249696793063332727, guid: 9f7b1902dd57d4b1dabb0a9c53cffe19, type: 3}
       propertyPath: m_Pivot.x
       value: 0

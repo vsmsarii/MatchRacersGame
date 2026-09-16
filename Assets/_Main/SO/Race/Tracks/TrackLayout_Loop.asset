@@ -1,0 +1,202 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1e4a92b0d34f5e8a61c3d9e2f4b701, type: 3}
+  m_Name: TrackLayout_Loop
+  m_EditorClassIdentifier: 
+  m_DisplayName: Loop
+  m_RaceLengthMeters: 1737.4642
+  m_Environment: {fileID: 11400000, guid: 7150c7193cfbe9c9466ec93737a9aede, type: 2}
+  m_LobbyMusic: {fileID: 8300000, guid: adfc60035b5844261853b6b62c78244a, type: 3}
+  m_LobbyMusicVolume: 0.8
+  m_RaceMusic: {fileID: 8300000, guid: ba6e5cdfa41444ae7a44ca404c741b49, type: 3}
+  m_RaceMusicVolume: 0.8
+  m_StartPosition: {x: 0, y: 0, z: 0}
+  m_StartHeading: 90
+  m_SampleSpacing: 1
+  m_ClosedLoop: 1
+  m_Segments:
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 1
+    m_Length: 100
+    m_Angle: 45
+    m_Radius: 50
+    m_Rise: 0
+  - m_Type: 1
+    m_Length: 100
+    m_Angle: 45
+    m_Radius: 50
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 1
+    m_Length: 100
+    m_Angle: 45
+    m_Radius: 50
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 1
+    m_Length: 100
+    m_Angle: -45
+    m_Radius: 50
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 1
+    m_Length: 100
+    m_Angle: 45
+    m_Radius: 50
+    m_Rise: 0
+  - m_Type: 1
+    m_Length: 100
+    m_Angle: 45
+    m_Radius: 50
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 1
+    m_Length: 100
+    m_Angle: 45
+    m_Radius: 50
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 1
+    m_Length: 100
+    m_Angle: 45
+    m_Radius: 50
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 19.4
+  - m_Type: 0
+    m_Length: 100
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 1
+    m_Length: 100
+    m_Angle: 45
+    m_Radius: 50
+    m_Rise: 0
+  - m_Type: 1
+    m_Length: 100
+    m_Angle: 45
+    m_Radius: 50
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 16
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: 0
+  - m_Type: 0
+    m_Length: 125.42128
+    m_Angle: 90
+    m_Radius: 40
+    m_Rise: -19.399992
+  m_PropCatalog: {fileID: 11400000, guid: b5d2e7f41a9c4e3d8f60a1c2d3e4f501, type: 2}
+  m_Props:
+  - m_Prop: 1
+    m_Side: 0
+    m_Distance: 0
+    m_EdgeOffset: 1.5
+    m_Height: 0
+    m_Count: 177
+    m_Spacing: 6
+    m_Yaw: 0
+    m_Scale: 1
+  - m_Prop: 2
+    m_Side: 0
+    m_Distance: 375
+    m_EdgeOffset: 4
+    m_Height: 0
+    m_Count: 29
+    m_Spacing: 3
+    m_Yaw: 0
+    m_Scale: 1
+  - m_Prop: 3
+    m_Side: 1
+    m_Distance: 375
+    m_EdgeOffset: 1
+    m_Height: 0
+    m_Count: 18
+    m_Spacing: 5
+    m_Yaw: 0
+    m_Scale: 1
+  - m_Prop: 4
+    m_Side: 0
+    m_Distance: -4
+    m_EdgeOffset: 5
+    m_Height: 0
+    m_Count: 1
+    m_Spacing: 1
+    m_Yaw: 0
+    m_Scale: 1
+  - m_Prop: 4
+    m_Side: 0
+    m_Distance: 1000
+    m_EdgeOffset: 5
+    m_Height: 0
+    m_Count: 1
+    m_Spacing: 1
+    m_Yaw: 0
+    m_Scale: 1
+  m_Landmarks: []
+  m_RoadMaterial: {fileID: 0}
+  m_StripeMaterial: {fileID: 0}
+  m_DistanceMarkers: 1
+  m_FinishGate: 1
+  m_Ground: 1
+  m_GroundMaterial: {fileID: 0}
+  m_GroundMargin: 120
+  m_GroundHeight: -0.05

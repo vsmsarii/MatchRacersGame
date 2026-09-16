@@ -19,10 +19,6 @@ namespace CasualKit.Core
         public int TotalAttempts;
         public int TotalCompletionSeconds;
         public LevelRecordData[] LevelScores;
-        public int Hearts;
-        public bool HeartsInitialized;
-        public long NextHeartUnixUtc;
-        public int SoftCurrency;
     }
 
     [Serializable]
@@ -44,10 +40,6 @@ namespace CasualKit.Core
         public int TotalAttempts;
         public int TotalCompletionSeconds;
         public LevelRecordData[] LevelScores;
-        public int Hearts;
-        public bool HeartsInitialized;
-        public long NextHeartUnixUtc;
-        public int SoftCurrency;
         public CoreProgressData Progress;
         public string GameJson;
     }

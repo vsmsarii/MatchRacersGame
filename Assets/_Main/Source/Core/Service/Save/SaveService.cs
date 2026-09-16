@@ -16,8 +16,6 @@ namespace CasualKit.Core
         private readonly string m_BackupPath;
         private readonly ITimeService m_Time;
         private SaveData m_Data;
-        private int m_MaxHearts;
-        private float m_HeartRefillMinutes;
         private bool m_Dirty;
 
         public static string FilePath => Path.Combine(Application.persistentDataPath, DefaultFileName);
@@ -59,27 +57,11 @@ namespace CasualKit.Core
         }
 
         private CoreProgressData Progress => m_Data.Progress;
-        private long NowUnix => m_Time.UnixUtc;
 
         public int CurrentLevelIndex => Progress.CurrentLevelIndex;
         public int CurrentLevelNumber => Progress.CurrentLevelIndex + 1;
         public bool HasCompletedFirstLevel => Progress.FirstLevelCompleted;
-        public int MaxHearts => m_MaxHearts < 0 ? 0 : m_MaxHearts;
-        public int Hearts => Progress.Hearts < 0 ? 0 : Progress.Hearts;
-        public int SoftCurrency => Progress.SoftCurrency < 0 ? 0 : Progress.SoftCurrency;
         public string GameJson => m_Data.GameJson;
-
-        public long SecondsUntilNextHeart
-        {
-            get
-            {
-                if (Progress.Hearts >= m_MaxHearts || Progress.NextHeartUnixUtc <= 0)
-                    return 0;
-
-                long remaining = Progress.NextHeartUnixUtc - NowUnix;
-                return remaining > 0 ? remaining : 0;
-            }
-        }
 
         public int GetLevelScore(int levelIndex)
         {
@@ -121,118 +103,9 @@ namespace CasualKit.Core
             MarkDirty();
         }
 
-        public void AddSoftCurrency(int amount)
-        {
-            if (amount <= 0)
-                return;
-
-            Progress.SoftCurrency += amount;
-            MarkDirty();
-        }
-
-        public bool TrySpendSoftCurrency(int amount)
-        {
-            if (amount <= 0)
-                return true;
-
-            if (Progress.SoftCurrency < amount)
-                return false;
-
-            Progress.SoftCurrency -= amount;
-            MarkDirty();
-            return true;
-        }
-
         public void SetGameJson(string json)
         {
             m_Data.GameJson = json ?? string.Empty;
-            MarkDirty();
-        }
-
-        public void ConfigureHearts(int maxHeartCount, float refillMinutes)
-        {
-            m_MaxHearts = maxHeartCount < 0 ? 0 : maxHeartCount;
-            m_HeartRefillMinutes = refillMinutes < 0f ? 0f : refillMinutes;
-
-            if (!Progress.HeartsInitialized)
-            {
-                Progress.Hearts = m_MaxHearts;
-                Progress.HeartsInitialized = true;
-                Progress.NextHeartUnixUtc = 0;
-                MarkDirty();
-            }
-
-            RefreshHearts();
-        }
-
-        public void RefreshHearts()
-        {
-            if (m_Data == null || !Progress.HeartsInitialized)
-                return;
-
-            if (Progress.Hearts >= m_MaxHearts)
-            {
-                if (Progress.NextHeartUnixUtc != 0)
-                {
-                    Progress.NextHeartUnixUtc = 0;
-                    MarkDirty();
-                }
-
-                return;
-            }
-
-            if (m_HeartRefillMinutes <= 0f || Progress.NextHeartUnixUtc <= 0)
-                return;
-
-            long now = NowUnix;
-            long refillSeconds = HeartRefillSeconds;
-            if (refillSeconds <= 0)
-                return;
-
-            bool dirty = false;
-            while (Progress.Hearts < m_MaxHearts && now >= Progress.NextHeartUnixUtc)
-            {
-                Progress.Hearts++;
-                dirty = true;
-                if (Progress.Hearts >= m_MaxHearts)
-                {
-                    Progress.NextHeartUnixUtc = 0;
-                    break;
-                }
-
-                Progress.NextHeartUnixUtc += refillSeconds;
-            }
-
-            if (dirty)
-                MarkDirty();
-        }
-
-        public bool TrySpendHeart()
-        {
-            RefreshHearts();
-            if (Progress.Hearts <= 0)
-                return false;
-
-            Progress.Hearts--;
-            if (Progress.Hearts < m_MaxHearts && Progress.NextHeartUnixUtc <= 0)
-            {
-                long refillSeconds = HeartRefillSeconds;
-                Progress.NextHeartUnixUtc = refillSeconds > 0 ? NowUnix + refillSeconds : 0;
-            }
-
-            MarkDirty();
-            return true;
-        }
-
-        public void GrantHearts(int amount)
-        {
-            if (amount <= 0)
-                return;
-
-            RefreshHearts();
-            Progress.Hearts += amount;
-            if (Progress.Hearts >= m_MaxHearts)
-                Progress.NextHeartUnixUtc = 0;
             MarkDirty();
         }
 
@@ -243,19 +116,7 @@ namespace CasualKit.Core
 
         public void LateTick(float deltaTime)
         {
-            RefreshHearts();
             PersistIfDirty();
-        }
-
-        private long HeartRefillSeconds
-        {
-            get
-            {
-                if (m_HeartRefillMinutes <= 0f)
-                    return 0;
-
-                return (long)Math.Ceiling(m_HeartRefillMinutes * 60d);
-            }
         }
 
         public int IncrementLevelAttempts(int levelIndex)
@@ -399,11 +260,7 @@ namespace CasualKit.Core
                     TotalScore = legacy.TotalScore,
                     TotalAttempts = legacy.TotalAttempts,
                     TotalCompletionSeconds = legacy.TotalCompletionSeconds,
-                    LevelScores = legacy.LevelScores ?? Array.Empty<LevelRecordData>(),
-                    Hearts = legacy.Hearts,
-                    HeartsInitialized = legacy.HeartsInitialized,
-                    NextHeartUnixUtc = legacy.NextHeartUnixUtc,
-                    SoftCurrency = legacy.SoftCurrency
+                    LevelScores = legacy.LevelScores ?? Array.Empty<LevelRecordData>()
                 },
                 GameJson = string.Empty
             });

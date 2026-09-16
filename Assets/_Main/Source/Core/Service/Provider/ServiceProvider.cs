@@ -52,6 +52,18 @@ namespace CasualKit.Core
             return (T)m_Services[typeof(T)];
         }
 
+        public bool TryGet<T>(out T service) where T : class, IService
+        {
+            if (m_Services.TryGetValue(typeof(T), out IService found))
+            {
+                service = (T)found;
+                return true;
+            }
+
+            service = null;
+            return false;
+        }
+
         public void Dispose()
         {
             for (int i = m_Order.Count - 1; i >= 0; i--)

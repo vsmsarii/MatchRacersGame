@@ -71,7 +71,9 @@ namespace MatchRacers.Tests
         {
             float free = MeasureBuffWindow(ERaceMode.Free, 0);
             float targeted = MeasureBuffWindow(ERaceMode.TargetOrder, 6);
-            float expected = 4 * m_Config.BaseSpeed * m_Config.BuffTable.WindowSeconds;
+            float launchSeconds = m_Config.BuffTable.GetLaunchSteps(m_Config.FixedStepHz) * m_Config.FixedDeltaTime;
+            float expected = 4 * m_Config.BaseSpeed * m_Config.BuffTable.WindowSeconds
+                             + m_Config.BaseSpeed * m_Config.BuffTable.LaunchDipMultiplier * launchSeconds;
 
             Assert.AreEqual(expected, free, expected * 0.001f, "free mode buff distance");
             Assert.AreEqual(expected, targeted, expected * 0.001f, "target mode buff distance");
@@ -131,7 +133,8 @@ namespace MatchRacers.Tests
             float before = car.Distance;
 
             player.NextKey = 4;
-            RaceTestKit.StepTimes(race, m_Config.BuffTable.GetWindowSteps(m_Config.FixedStepHz));
+            RaceTestKit.StepTimes(race, m_Config.BuffTable.GetLaunchSteps(m_Config.FixedStepHz)
+                                        + m_Config.BuffTable.GetWindowSteps(m_Config.FixedStepHz));
             return car.Distance - before;
         }
     }

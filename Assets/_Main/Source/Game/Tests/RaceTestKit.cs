@@ -66,6 +66,26 @@ namespace MatchRacers.Tests
             return race;
         }
 
+        public static RaceConfigSO WithRaceLength(RaceConfigSO source, float meters)
+        {
+            RaceConfigSO copy = Object.Instantiate(source);
+            SerializedObject serialized = new SerializedObject(copy);
+            serialized.FindProperty("m_RaceLengthMeters").floatValue = meters;
+            serialized.FindProperty("m_TrackLayout").objectReferenceValue = null;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            return copy;
+        }
+
+        public static RaceScenarioSO CreateScenario(EScenarioInputMode mode, string displayName)
+        {
+            RaceScenarioSO scenario = ScriptableObject.CreateInstance<RaceScenarioSO>();
+            SerializedObject serialized = new SerializedObject(scenario);
+            serialized.FindProperty("m_InputMode").intValue = (int)mode;
+            serialized.FindProperty("m_DisplayName").stringValue = displayName;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            return scenario;
+        }
+
         public static RaceScenarioSO LoadScenario(string assetName)
         {
             return AssetDatabase.LoadAssetAtPath<RaceScenarioSO>(

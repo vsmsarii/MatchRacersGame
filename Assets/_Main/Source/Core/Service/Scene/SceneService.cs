@@ -60,9 +60,6 @@ namespace CasualKit.Core
                 case ESceneName.Init:
                     sceneName = "Init";
                     return true;
-                case ESceneName.Menu:
-                    sceneName = "Menu";
-                    return true;
                 case ESceneName.Gameplay:
                     sceneName = "Gameplay";
                     return true;

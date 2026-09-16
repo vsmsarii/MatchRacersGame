@@ -21,17 +21,12 @@ namespace CasualKit.Editor
                 return;
 
             EnsureEntryByPath(settings, "Assets/_Main/Input/PillFrenzyInput.inputactions", AddressableKeys.InputActions);
-            EnsureEntryByPath(settings, "Assets/_Main/SO/Settings/IAPCatalog.asset", AddressableKeys.IapCatalog);
             EnsureEntryByPath(settings, "Assets/_Main/SO/Settings/GlobalSettings.asset", AddressableKeys.GlobalSettings);
             EnsureEntryByPath(settings, "Assets/_Main/SO/Settings/LevelCatalog.asset", AddressableKeys.LevelManifest);
             EnsureEntryByPath(settings, "Assets/_Main/SO/Settings/AudioCatalog.asset", AddressableKeys.AudioCatalog);
             EnsureEntryByPath(settings, "Assets/_Main/SO/Settings/UIPanelCatalog.asset", AddressableKeys.UiPanelCatalog);
-            EnsureEntryByPath(settings, "Assets/_Main/Prefab/UI/MainMenuCanvas.prefab", AddressableKeys.UiMainMenu);
             EnsureEntryByPath(settings, "Assets/_Main/Prefab/UI/GameplayCanvas.prefab", AddressableKeys.UiGameplay);
-            EnsureEntryByPath(settings, "Assets/_Main/Prefab/UI/WinCanvas.prefab", AddressableKeys.UiWin);
-            EnsureEntryByPath(settings, "Assets/_Main/Prefab/UI/LoseCanvas.prefab", AddressableKeys.UiLose);
             EnsureEntryByPath(settings, "Assets/_Main/Prefab/UI/LoadingCanvas.prefab", AddressableKeys.UiLoading);
-            EnsureEntryByPath(settings, "Assets/_Main/Prefab/UI/ShopCanvas.prefab", AddressableKeys.UiShop);
             EnsureEntryByPath(settings, "Assets/_Main/Prefab/UI/SettingsCanvas.prefab", AddressableKeys.UiSettings);
         }
 

@@ -3,6 +3,8 @@
     "rootNamespace": "MatchRacers.Editor",
     "references": [
         "MatchRacers.Gameplay",
+        "Unity.TextMeshPro",
+        "UnityEngine.UI",
         "Unity.Addressables",
         "Unity.Addressables.Editor",
         "Unity.ResourceManager"

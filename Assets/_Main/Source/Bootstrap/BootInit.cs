@@ -39,11 +39,8 @@ namespace CasualKit.Bootstrap
         {
             await ServiceInstaller.InitializeRuntimeAsync(m_Context, true);
 
-            ISaveService save = m_Context.Services.Get<ISaveService>();
             ISceneService scenes = m_Context.Services.Get<ISceneService>();
-            ESceneName scene = save.HasCompletedFirstLevel ? ESceneName.Menu : ESceneName.Gameplay;
-            
-            await scenes.Load(scene, m_Context.CancellationToken);
+            await scenes.Load(ESceneName.Gameplay, m_Context.CancellationToken);
         }
     }
 }

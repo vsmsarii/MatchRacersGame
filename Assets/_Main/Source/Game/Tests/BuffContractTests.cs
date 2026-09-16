@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using UnityEngine;
 
 namespace MatchRacers.Tests
 {
@@ -29,10 +30,13 @@ namespace MatchRacers.Tests
 
             player.NextKey = key;
             int windowSteps = m_Config.BuffTable.GetWindowSteps(m_Config.FixedStepHz);
-            RaceTestKit.StepTimes(race, windowSteps);
+            int launchSteps = m_Config.BuffTable.GetLaunchSteps(m_Config.FixedStepHz);
+            RaceTestKit.StepTimes(race, launchSteps + windowSteps);
 
             float travelled = car.Distance - before;
-            float expected = key * m_Config.BaseSpeed * m_Config.BuffTable.WindowSeconds;
+            float dt = m_Config.FixedDeltaTime;
+            float expected = launchSteps * dt * m_Config.BaseSpeed * m_Config.BuffTable.LaunchDipMultiplier
+                             + key * m_Config.BaseSpeed * windowSteps * dt;
 
             Assert.AreEqual(expected, travelled, expected * 0.001f,
                 $"key {key}: expected {expected} m over the window, travelled {travelled} m");
@@ -51,9 +55,12 @@ namespace MatchRacers.Tests
 
             player.NextKey = 1;
             int windowSteps = m_Config.BuffTable.GetWindowSteps(m_Config.FixedStepHz);
-            RaceTestKit.StepTimes(race, windowSteps);
+            int launchSteps = m_Config.BuffTable.GetLaunchSteps(m_Config.FixedStepHz);
+            RaceTestKit.StepTimes(race, launchSteps + windowSteps);
 
-            float baseline = m_Config.BaseSpeed * m_Config.BuffTable.WindowSeconds;
+            float dt = m_Config.FixedDeltaTime;
+            float baseline = launchSteps * dt * m_Config.BaseSpeed * m_Config.BuffTable.LaunchDipMultiplier
+                             + m_Config.BaseSpeed * windowSteps * dt;
             Assert.AreEqual(baseline, car.Distance - before, baseline * 0.001f);
             Assert.GreaterOrEqual(car.Energy, energyBefore, "key 1 must not cost energy");
         }
@@ -68,6 +75,9 @@ namespace MatchRacers.Tests
             CarState car = race.GetCar(race.PlayerCarIndex);
             player.NextKey = 3;
             race.Step();
+
+            while (car.IsLaunching)
+                race.Step();
 
             int stepsRemaining = car.BuffStepsRemaining;
             float energyAfterAccept = car.Energy;
@@ -131,6 +141,64 @@ namespace MatchRacers.Tests
         }
 
         [Test]
+        public void SameKeyIsBlockedByItsOwnCooldown()
+        {
+            RaceSimulation race = RaceTestKit.CreateIsolatedRace(m_Config, out TestAgent player);
+            race.Reset(1337u);
+            RaceTestKit.StepUntilRacing(race);
+
+            CarState car = race.GetCar(race.PlayerCarIndex);
+            const int key = 2;
+
+            player.NextKey = key;
+            int windowSteps = m_Config.BuffTable.GetWindowSteps(m_Config.FixedStepHz);
+            RaceTestKit.StepTimes(race, windowSteps);
+
+            int keyCooldown = m_Config.BuffTable.GetKeyCooldownSteps(key, m_Config.FixedStepHz);
+            Assert.Greater(keyCooldown, 0, "test needs a key with a real cooldown");
+
+            int globalCooldown = m_Simulation_GlobalCooldownSteps();
+            RaceTestKit.StepTimes(race, globalCooldown + 1);
+
+            car.Energy = m_Config.BuffTable.EnergyMax;
+            int rejectedBefore = car.RejectedBuffCount;
+
+            player.NextKey = key;
+            race.Step();
+
+            Assert.AreEqual(0, car.ActiveBuffKey, "key must stay on its own cooldown");
+            Assert.AreEqual(rejectedBefore + 1, car.RejectedBuffCount);
+        }
+
+        [Test]
+        public void AnotherKeyStaysUsableWhileOneIsCoolingDown()
+        {
+            RaceSimulation race = RaceTestKit.CreateIsolatedRace(m_Config, out TestAgent player);
+            race.Reset(1337u);
+            RaceTestKit.StepUntilRacing(race);
+
+            CarState car = race.GetCar(race.PlayerCarIndex);
+
+            player.NextKey = 2;
+            int windowSteps = m_Config.BuffTable.GetWindowSteps(m_Config.FixedStepHz);
+            int launchSteps = m_Config.BuffTable.GetLaunchSteps(m_Config.FixedStepHz);
+            RaceTestKit.StepTimes(race, launchSteps + windowSteps);
+            RaceTestKit.StepTimes(race, m_Simulation_GlobalCooldownSteps() + 1);
+
+            car.Energy = m_Config.BuffTable.EnergyMax;
+
+            player.NextKey = 3;
+            race.Step();
+
+            Assert.AreEqual(3, car.ActiveBuffKey, "an independent key must remain available");
+        }
+
+        private int m_Simulation_GlobalCooldownSteps()
+        {
+            return Mathf.RoundToInt(m_Config.BuffTable.GlobalCooldownSeconds * m_Config.FixedStepHz);
+        }
+
+        [Test]
         public void CooldownBlocksImmediateReuse()
         {
             RaceSimulation race = RaceTestKit.CreateIsolatedRace(m_Config, out TestAgent player);
@@ -140,7 +208,8 @@ namespace MatchRacers.Tests
             CarState car = race.GetCar(race.PlayerCarIndex);
             player.NextKey = 2;
             int windowSteps = m_Config.BuffTable.GetWindowSteps(m_Config.FixedStepHz);
-            RaceTestKit.StepTimes(race, windowSteps);
+            int launchSteps = m_Config.BuffTable.GetLaunchSteps(m_Config.FixedStepHz);
+            RaceTestKit.StepTimes(race, launchSteps + windowSteps);
 
             Assert.AreEqual(0, car.ActiveBuffKey, "window should have expired");
             Assert.Greater(car.CooldownStepsRemaining, 0, "cooldown should have started");
@@ -151,6 +220,35 @@ namespace MatchRacers.Tests
 
             Assert.AreEqual(0, car.ActiveBuffKey, "cooldown must block reuse");
             Assert.AreEqual(rejectedBefore + 1, car.RejectedBuffCount);
+        }
+
+        [Test]
+        public void NitroHoldsBackBeforeItLaunches()
+        {
+            int launchSteps = m_Config.BuffTable.GetLaunchSteps(m_Config.FixedStepHz);
+            Assert.Greater(launchSteps, 0, "this test needs a launch delay in the BuffTable");
+
+            RaceSimulation race = RaceTestKit.CreateIsolatedRace(m_Config, out TestAgent player);
+            race.Reset(1337u);
+            RaceTestKit.StepUntilRacing(race);
+            RaceTestKit.StepTimes(race, 10);
+
+            CarState car = race.GetCar(race.PlayerCarIndex);
+            int windowSteps = m_Config.BuffTable.GetWindowSteps(m_Config.FixedStepHz);
+
+            player.NextKey = 5;
+            RaceTestKit.StepTimes(race, launchSteps);
+
+            float dipped = m_Config.BaseSpeed * m_Config.BuffTable.LaunchDipMultiplier;
+            Assert.AreEqual(5, car.ActiveBuffKey, "the buff is active while the car still holds back");
+            Assert.AreEqual(dipped, car.Speed, dipped * 0.001f, "the car must dip below base speed first");
+            Assert.AreEqual(windowSteps, car.BuffStepsRemaining, "the delay must not eat into the window");
+
+            RaceTestKit.StepTimes(race, 1);
+
+            float boosted = 5f * m_Config.BaseSpeed;
+            Assert.AreEqual(boosted, car.Speed, boosted * 0.001f, "the boost must land right after the delay");
+            Assert.AreEqual(windowSteps - 1, car.BuffStepsRemaining);
         }
     }
 }

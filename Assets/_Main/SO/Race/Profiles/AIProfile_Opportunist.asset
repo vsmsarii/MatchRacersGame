@@ -47,8 +47,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_RequiresNearbyRival: 1
+  m_IsolatedAttackScale: 0.25
   m_EngagementRangeMeters: 25
   m_OvertakeUrgency: 0.6
   m_LeadCaution: 0.35
   m_ComfortGapMeters: 30
-  m_BaseSpeedVariance: 0.02
+  m_BaseSpeedVariance: 0.035

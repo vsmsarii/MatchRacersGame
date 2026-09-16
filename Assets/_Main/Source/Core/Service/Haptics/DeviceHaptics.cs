@@ -9,7 +9,9 @@ namespace CasualKit.Core
             if (strength == EHapticStrength.Light)
                 return;
 
+#if UNITY_ANDROID || UNITY_IOS
             Handheld.Vibrate();
+#endif
         }
     }
 }

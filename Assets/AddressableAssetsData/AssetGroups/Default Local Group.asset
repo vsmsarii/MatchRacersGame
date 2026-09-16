@@ -15,28 +15,18 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 3d9bb968dc0c840579e5b59ec8047ef6
   m_SerializeEntries:
-  - m_GUID: 18e6764decbd444fc9c2f85b8a3ca5cf
-    m_Address: ui.win
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e771105000000000000000000000001
     m_Address: ui.settings
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 630efdfaea8504792baba6cece09e5d4
+    m_Address: ui.gameplay
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f631a68e5b9ee69b599e545f84dbd1e
     m_Address: def.race.buff
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 90123456789abcdef0123456789abcde
-    m_Address: def.iap.catalog
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a0123456789abcdef0123456789abcde
-    m_Address: ui.shop
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -55,18 +45,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a7c01c5ac06824f84a0881563103790f
-    m_Address: ui.gameplay
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: afc32586eb1cc4c1faab2e9aecae1c21
-    m_Address: ui.menu
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b5ec0416283a8bcdf4a5b6c7d8e9f001
     m_Address: sfx.fail
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb838daa17db14524b2c14e1511c056c
+    m_Address: ui.race.mode
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -80,8 +65,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e8ca9c6488276438b83933720aabdf79
-    m_Address: ui.lose
+  - m_GUID: e0b151c3ad10a499fac92a658383baca
+    m_Address: ui.race.debug
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -97,6 +82,26 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fcd1268a6670fbc6008ed7e9b2940ea0
     m_Address: def.race.config
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b85a9e16cc798c4ca3ce98b38fbb8a0
+    m_Address: vfx.car.IdleSmoke
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d9f25f0bd58c9144a4abeef1afcc788
+    m_Address: vfx.car.CruiseFlame
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 681e0b2012e0f6b44b29743efc3a14bb
+    m_Address: vfx.car.NitroFlame
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0136e320f151466aa7de50efe8525b5b
+    m_Address: ui.race.track
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -45,7 +45,39 @@ namespace MatchRacers
             if (m_Scenario.InputMode == EScenarioInputMode.RepeatingKey)
                 return PollRepeating(raceTime);
 
+            if (m_Scenario.InputMode == EScenarioInputMode.Greedy)
+                return PollGreedy(view);
+
             return 0;
+        }
+
+        private int PollGreedy(IRaceView view)
+        {
+            CarState car = view.GetCar(m_CarIndex);
+            BuffTableSO table = view.BuffTable;
+            if (car == null || table == null || car.HasActiveBuff || car.CooldownStepsRemaining > 0)
+                return 0;
+
+            int best = 0;
+            float bestRatio = -1f;
+
+            for (int key = 2; key <= BuffTableSO.MaxKey; key++)
+            {
+                if (car.KeyCooldownSteps[key] > 0)
+                    continue;
+
+                if (!table.TryGetEnergyCost(key, out float cost) || cost <= 0f || car.Energy < cost)
+                    continue;
+
+                float ratio = (key - 1) / cost;
+                if (ratio > bestRatio)
+                {
+                    bestRatio = ratio;
+                    best = key;
+                }
+            }
+
+            return best;
         }
 
         private int PollTimeline(float stepTime)

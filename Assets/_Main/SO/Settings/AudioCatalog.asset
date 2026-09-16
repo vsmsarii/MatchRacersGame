@@ -13,13 +13,46 @@ MonoBehaviour:
   m_Name: AudioCatalog
   m_EditorClassIdentifier: 
   m_Entries:
-  - m_Name: 1
-    m_Clip: {fileID: 0}
-  - m_Name: 2
-    m_Clip: {fileID: 0}
   - m_Name: 6
     m_Clip: {fileID: 8300000, guid: a4dbf30517297abce3f4a5b6c7d8e9f0, type: 3}
+    m_Volume: 1
   - m_Name: 7
     m_Clip: {fileID: 8300000, guid: b5ec0416283a8bcdf4a5b6c7d8e9f001, type: 3}
+    m_Volume: 1
   - m_Name: 8
     m_Clip: {fileID: 8300000, guid: a550cb02580f00c40b4ba02aeff3acb4, type: 3}
+    m_Volume: 1
+  - m_Name: 9
+    m_Clip: {fileID: 8300000, guid: 20962aec1311c42a1b9d4606acf0b407, type: 3}
+    m_Volume: 1
+  - m_Name: 10
+    m_Clip: {fileID: 8300000, guid: 1f21387be58ea4c64a57191f1adfb5ac, type: 3}
+    m_Volume: 1
+  - m_Name: 11
+    m_Clip: {fileID: 8300000, guid: 7aca3dde32a434d9081de0036a97a733, type: 3}
+    m_Volume: 1
+  - m_Name: 17
+    m_Clip: {fileID: 8300000, guid: f19203f0923d08f4287c644a1b55d205, type: 3}
+    m_Volume: 1
+  - m_Name: 18
+    m_Clip: {fileID: 8300000, guid: 3b1734661591e2b4f9a41d5057c7fff3, type: 3}
+    m_Volume: 1
+  - m_Name: 19
+    m_Clip: {fileID: 8300000, guid: aaddb94424c9c014a9e4b2df9ad95200, type: 3}
+    m_Volume: 1
+  - m_Name: 20
+    m_Clip: {fileID: 8300000, guid: aaddb94424c9c014a9e4b2df9ad95200, type: 3}
+    m_Volume: 1
+  - m_Name: 21
+    m_Clip: {fileID: 8300000, guid: ca9bb92cbb5f705499b316408b1c5987, type: 3}
+    m_Volume: 1
+  - m_Name: 22
+    m_Clip: {fileID: 8300000, guid: 97f33b29e5f805743bc11efa28169255, type: 3}
+    m_Volume: 1
+  m_SpatialBlend: 1
+  m_MinDistance: 25
+  m_MaxDistance: 260
+  m_Spread: 35
+  m_DopplerLevel: 0.25
+  m_MusicVolume: 1
+  m_MusicFadeSeconds: 1
